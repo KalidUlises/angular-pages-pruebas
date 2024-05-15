@@ -1,0 +1,21 @@
+<h1>Listado de heroes</h1>
+
+
+<div *ngIf="deleteHero; else noDeletedHero">
+<h4>Herroe Borrado <small class="text-danger">{{deleteHero}} </small></h4>
+</div>
+
+<ng-template #noDeletedHero>
+<h4 *ngIf="!deleteHero">No ha borrado nada</h4>
+</ng-template>
+
+<br>
+<button *ngIf="heroNames.length > 0" (click)="removeLastHero()" class="btn btn-outline-danger">Borrar ulitmo Heroe</button>
+
+
+<ul class="mt-2 list-group">
+  <!-- Este elemento se tienen que repetir varias veces, principalmente se carga la cantidad de elementos
+  que existen en el arrat. si qiueres llevar -->
+  <li *ngFor="let item of heroNames " class="list-group-item">{{item}}</li>
+</ul>
+

@@ -1,0 +1,34 @@
+<h4>Listado</h4>
+<ul class="list-group" >
+  <!-- Puedes obtener la propiedad de la posicion cuando preguntas por el objeto index -->
+  <!-- en realidad el ngFor tienen varios objetos expuestos del cual podemos obtener información -->
+
+  <!-- TODO basicamente cualquier elemento de HTLM cuando se encierra con llaves cuadradas
+       TODO hace que Angular tome el contro para que lo igualemos a alguna expresion o evaluacion, tiene que se de JavaScript  -->
+
+  <!-- El ngClass sirve para poder modificar el aspecto del elemento deacuerdo a alguna condición
+       entiendo que como tengo un ngfor, esta condicion se evalua para cada iteracion, y si en esa iteración
+      da positivo, entonces ese elemento queda con el estilo que se haya definido cuando la condicion es true-->
+  <li *ngFor="let character of characterList;
+  let i = index;
+  let isLast = last;
+  let isFirst = first"
+  class="list-group-item d-flex justify-content-between align-items-center"
+
+  [ngClass]="{'list-group-item-secondary': true,
+    'list-group-item-warning': isLast
+  }">
+
+    <div>
+    <span class="text-primary">{{i+1}}</span>
+    -
+    <span>{{character.name}}</span>
+    -
+    <span>{{character.power}}</span>
+    </div>
+    <button class="btn btn-danger" (click)="searchCharacter(character.id!)">X</button>
+    <!-- <b>Es primero:</b> <span>{{isFirst}}</span>
+    <b>Es último :</b> <span>{{isLast}}</span> -->
+
+  </li>
+</ul>
