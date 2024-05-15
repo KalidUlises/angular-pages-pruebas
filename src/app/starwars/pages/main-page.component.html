@@ -1,0 +1,17 @@
+<h1>Personajes de Star Wars</h1>
+
+<div class="row">
+
+  <div class="col">
+    <!-- En este punto lo que le paso es mi valor del main, a mi variable del list -->
+    <app-list-sw [characterListSW]="charactersList"
+     (onDeleteCharacter)="OnDeleteCharacter($event)"></app-list-sw>
+  </div>
+
+  <div class="col">
+    <!-- * Los elementos con ( ) se escuchan, mientras que los elementos con  [ ] se envian  -->
+    <!-- Para enviar como argumento lo que se escucho del evento se usa '$event' -->
+    <app-add-character-sw (onNewCharacter)="addCharacter($event)"></app-add-character-sw>
+  </div>
+
+</div>
